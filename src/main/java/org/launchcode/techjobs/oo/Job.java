@@ -90,4 +90,26 @@ public class Job {
     public void setCoreCompetency(CoreCompetency coreCompetency) {
         this.coreCompetency = coreCompetency;
     }
+
+    @Override
+    public String toString() {
+        String nameValue = (this.getName() == null || this.getName().isEmpty()) ? "Data not available" : this.getName();
+        String employerValue = (this.getEmployer().getValue() == null || this.getEmployer().getValue().isEmpty()) ? "Data not available" : this.getEmployer().getValue();
+        String locationValue = (this.getLocation().getValue() == null || this.getLocation().getValue().isEmpty()) ? "Data not available" : this.getLocation().getValue();
+        String positionTypeValue = (this.getPositionType().getValue() == null || this.getPositionType().getValue().isEmpty()) ? "Data not available" : this.getPositionType().getValue();
+        String coreCompetencyValue = (this.getCoreCompetency().getValue() == null || this.getCoreCompetency().getValue().isEmpty()) ? "Data not available" : this.getCoreCompetency().getValue();
+
+        String labelsAndData = String.join(
+                System.lineSeparator(),
+                "",
+                "ID: " + this.getId(),
+                "Name: " + nameValue,
+                "Employer: " + employerValue,
+                "Location: " + locationValue,
+                "Position Type: " + positionTypeValue,
+                "Core Competency: " + coreCompetencyValue,
+                ""
+        );
+        return labelsAndData;
+    }
 }
